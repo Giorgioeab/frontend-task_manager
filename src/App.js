@@ -25,6 +25,11 @@ class App extends React.Component {
       ],
     };
   }
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState)
+    console.log("componente atualizado");
+  }
+
   handleStateChange() {
     this.setState({
       tasks: [],

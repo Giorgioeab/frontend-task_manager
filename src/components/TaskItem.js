@@ -12,6 +12,13 @@
 import React from "react";
 
 class TaskItem extends React.Component {
+    componentDidMount() {
+        console.log('componente montado')
+    }
+
+    componentWillUnmount() {
+        console.log('componente desmontado')
+    }
   render() {
     const { task } = this.props;
     return (
