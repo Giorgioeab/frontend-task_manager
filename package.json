@@ -12,6 +12,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.86.0",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -20,9 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
-    "proxy":"https://fsc-task-manager-backend.herokuapp.com/"
-  ,
+  "proxy": "https://almeida-task-manager-11f6877e11ed.herokuapp.com/",
   "eslintConfig": {
     "extends": [
       "react-app",
