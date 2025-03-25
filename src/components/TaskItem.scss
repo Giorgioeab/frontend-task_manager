@@ -29,20 +29,20 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
 }
 
 .checkbox-container-completed {
   @extend .checkbox-container;
   color: #9d9aad;
   text-decoration: line-through;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .checkmark {
