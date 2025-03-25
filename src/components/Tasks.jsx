@@ -10,9 +10,7 @@ const Tasks = () => {
 
   const fetchTasks = async () => {
     try {
-      const { data } = await axios.get(
-        "https://almeida-task-manager-11f6877e11ed.herokuapp.com/tasks"
-      );
+      const { data } = await axios.get("https://almeida-task-manager-11f6877e11ed.herokuapp.com/tasks");
       setTasks(data);
     } catch (error) {
       console.log(error);
@@ -22,6 +20,7 @@ const Tasks = () => {
   useEffect(() => {
     fetchTasks();
   }, []);
+  
   return (
     <div className="tasks-container">
       <h2>Minhas Tarefas</h2>
@@ -32,7 +31,7 @@ const Tasks = () => {
           {tasks
             .filter((task) => task.isCompleted === false)
             .map((lastTask) => (
-              <TaskItem task={lastTask}/>
+              <TaskItem task={lastTask} key={lastTask._id} />
             ))}
         </div>
       </div>
@@ -40,10 +39,10 @@ const Tasks = () => {
       <div className="completed-tasks">
         <h3>Tarefas Concluidas</h3>
         <div className="tasks-list">
-        {tasks
+          {tasks
             .filter((task) => task.isCompleted)
             .map((completedTask) => (
-              <TaskItem task={completedTask}/>
+              <TaskItem task={completedTask} key={completedTask._id} />
             ))}
         </div>
       </div>
