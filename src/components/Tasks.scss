@@ -5,6 +5,8 @@
   max-width: 40%;
   padding-top: 50px;
   height: 100vh;
+  overflow-y: hidden;
+  flex: auto;
 
   h2 {
     margin-bottom: 24px;
@@ -15,7 +17,7 @@
 
   .last-tasks {
     flex: 1;
-    overflow: hidden;
+    overflow-y: hidden;
     display: flex;
     flex-direction: column;
 
@@ -23,7 +25,20 @@
       margin-bottom: 20px;
     }
 
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
     .tasks-list {
+      overflow-y: auto;
       margin-top: 28px;
     }
   }
