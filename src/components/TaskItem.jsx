@@ -4,17 +4,22 @@ import { useAlert } from "react-alert";
 
 import "./TaskItem.scss";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, fetchTasks }) => {
   const alert = useAlert();
 
   const handleTaskDeletion = async () => {
     try {
-      await axios.delete(`https://almeida-task-manager-11f6877e11ed.herokuapp.com/tasks/${task._id}`)
+      await axios.delete(
+        `https://almeida-task-manager-11f6877e11ed.herokuapp.com/tasks/${task._id}`
+      );
+
+      await fetchTasks();
+
+      alert.success("Tarefa deletada com sucesso!");
     } catch (error) {
-      alert.error('Algo deu errado.')
+      alert.error("Algo deu errado.");
     }
-  }
-  
+  };
 
   return (
     <div className="task-item-container">
@@ -35,7 +40,7 @@ const TaskItem = ({ task }) => {
       </div>
 
       <div className="delete">
-        <AiFillDelete size={18} color="#f97474"  onClick={handleTaskDeletion} />
+        <AiFillDelete size={18} color="#f97474" onClick={handleTaskDeletion} />
       </div>
     </div>
   );
