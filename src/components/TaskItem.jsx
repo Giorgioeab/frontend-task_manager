@@ -1,8 +1,21 @@
+import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
+import { useAlert } from "react-alert";
+
 import "./TaskItem.scss";
 
-import { AiFillDelete } from "react-icons/ai";
-
 const TaskItem = ({ task }) => {
+  const alert = useAlert();
+
+  const handleTaskDeletion = async () => {
+    try {
+      await axios.delete(`https://almeida-task-manager-11f6877e11ed.herokuapp.com/tasks/${task._id}`)
+    } catch (error) {
+      alert.error('Algo deu errado.')
+    }
+  }
+  
+
   return (
     <div className="task-item-container">
       <div className="task-description">
@@ -22,7 +35,7 @@ const TaskItem = ({ task }) => {
       </div>
 
       <div className="delete">
-        <AiFillDelete size={18} color="#f97474" />
+        <AiFillDelete size={18} color="#f97474"  onClick={handleTaskDeletion} />
       </div>
     </div>
   );
