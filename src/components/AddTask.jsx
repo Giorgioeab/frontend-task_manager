@@ -10,7 +10,7 @@ import "./AddTask.scss";
 
 const AddTask = (fetchTasks) => {
   const [task, setTask] = useState("");
-
+  
   const alert = useAlert();
 
   const onChange = (e) => {
@@ -32,10 +32,15 @@ const AddTask = (fetchTasks) => {
           isCompleted: false,
         }
       );
+
       await fetchTasks();
 
+      console.log('3')
+
+
       setTask("");
-      await alert.success("A tarefa foi adicionada com sucesso!");
+
+      alert.success("A talefa foi adicionada com sucesso!");
     } catch (error) {
       alert.error("Algo deu errado.");
     }
