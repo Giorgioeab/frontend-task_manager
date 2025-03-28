@@ -48,7 +48,7 @@ const TaskItem = ({ task, fetchTasks }) => {
               : "checkbox-container"
           }
         >
-          {task.descripition}
+          {task.description}
           <input
             type="checkbox"
             defaultChecked={task.isCompleted}
