@@ -33,11 +33,11 @@ const AddTask = (fetchTasks) => {
         }
       );
 
-      await fetchTasks();
+      setTimeout(() => fetchTasks, 0);
 
       setTask("");
 
-      alert.success("A talefa foi adicionada com sucesso!");
+      alert.success("A tarefa foi adicionada com sucesso!");
     } catch (_e) {
       alert.error("Algo deu errado.");
     }
