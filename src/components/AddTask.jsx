@@ -10,7 +10,7 @@ import "./AddTask.scss";
 
 const AddTask = (fetchTasks) => {
   const [task, setTask] = useState("");
-  
+
   const alert = useAlert();
 
   const onChange = (e) => {
@@ -38,14 +38,19 @@ const AddTask = (fetchTasks) => {
       setTask("");
 
       alert.success("A talefa foi adicionada com sucesso!");
-    } catch (error) {
+    } catch (_e) {
       alert.error("Algo deu errado.");
     }
   };
 
   return (
     <div className="add-task-container">
-      <CustomInput label="Adicionar tarefa" value={task} onChange={onChange} onEnterPress={handleTaskAddition}/>
+      <CustomInput
+        label="Adicionar tarefa"
+        value={task}
+        onChange={onChange}
+        onEnterPress={handleTaskAddition}
+      />
       <CustomButton onClick={handleTaskAddition}>
         <FaPlus size={14} color="#ffffff" />
       </CustomButton>
