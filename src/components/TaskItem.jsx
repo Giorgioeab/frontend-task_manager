@@ -21,6 +21,23 @@ const TaskItem = ({ task, fetchTasks }) => {
     }
   };
 
+  const handleTaskCompletionChange = async (e) => {
+    try {
+      await axios.patch(
+        `https://almeida-task-manager-11f6877e11ed.herokuapp.com/tasks/${task._id}`,
+        {
+          isCompleted: e.target.checked,
+        }
+      );
+
+      await fetchTasks();
+
+      alert.success("Tarefa modificada com sucesso!");
+    } catch (error) {
+      alert.error("Algo deu errado.");
+    }
+  };
+
   return (
     <div className="task-item-container">
       <div className="task-description">
@@ -32,7 +49,11 @@ const TaskItem = ({ task, fetchTasks }) => {
           }
         >
           {task.descripition}
-          <input type="checkbox" defaultChecked={task.isCompleted} />
+          <input
+            type="checkbox"
+            defaultChecked={task.isCompleted}
+            onChange={(e) => handleTaskCompletionChange(e)}
+          />
           <span
             className={task.isCompleted ? "checkmark completed" : "checkmark"}
           ></span>
