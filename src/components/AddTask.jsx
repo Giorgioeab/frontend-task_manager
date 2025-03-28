@@ -35,9 +35,6 @@ const AddTask = (fetchTasks) => {
 
       await fetchTasks();
 
-      console.log('3')
-
-
       setTask("");
 
       alert.success("A talefa foi adicionada com sucesso!");
