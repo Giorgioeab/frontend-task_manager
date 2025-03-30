@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useAlert } from "react-alert";
+import { toast } from "sonner";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
@@ -11,8 +11,6 @@ import "./AddTask.scss";
 const AddTask = (fetchTasks) => {
   const [task, setTask] = useState("");
 
-  const alert = useAlert();
-
   const onChange = (e) => {
     setTask(e.target.value);
   };
@@ -20,7 +18,7 @@ const AddTask = (fetchTasks) => {
   const handleTaskAddition = async () => {
     try {
       if (task.length === 0) {
-        return alert.error(
+        return toast.error(
           "A tarefa precisa de uma descrição para ser addicionada."
         );
       }
@@ -37,9 +35,9 @@ const AddTask = (fetchTasks) => {
 
       setTask("");
 
-      alert.success("A tarefa foi adicionada com sucesso!");
+      toast.success("A tarefa foi adicionada com sucesso!");
     } catch (_e) {
-      alert.error("Algo deu errado.");
+      toast.error("Algo deu errado.");
     }
   };
 

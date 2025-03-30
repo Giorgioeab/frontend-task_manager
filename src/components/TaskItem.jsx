@@ -1,12 +1,10 @@
 import { AiFillDelete } from "react-icons/ai";
+import { toast } from "sonner";
 import axios from "axios";
-import { useAlert } from "react-alert";
 
 import "./TaskItem.scss";
 
 const TaskItem = ({ task, fetchTasks }) => {
-  const alert = useAlert();
-
   const handleTaskDeletion = async () => {
     try {
       await axios.delete(
@@ -15,9 +13,9 @@ const TaskItem = ({ task, fetchTasks }) => {
 
       await fetchTasks();
 
-      alert.success("Tarefa deletada com sucesso!");
+      toast.success("Tarefa deletada com sucesso!");
     } catch (_error) {
-      alert.error("Algo deu errado.");
+      toast.error("Algo deu errado.");
     }
   };
 
@@ -32,9 +30,9 @@ const TaskItem = ({ task, fetchTasks }) => {
 
       await fetchTasks();
 
-      alert.success("Tarefa modificada com sucesso!");
+      toast.success("Tarefa modificada com sucesso!");
     } catch (_error) {
-      alert.error("Algo deu errado.");
+      toast.error("Algo deu errado.");
     }
   };
 

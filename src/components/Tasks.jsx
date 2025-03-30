@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
-import { useAlert } from "react-alert";
+import { toast } from "sonner";
 
 import "./Tasks.scss";
 
@@ -10,8 +10,6 @@ import AddTask from "./AddTask";
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);
 
-  const alert = useAlert();
-
   const fetchTasks = async () => {
     try {
       const { data } = await axios.get(
@@ -19,7 +17,7 @@ const Tasks = () => {
       );
       setTasks(data);
     } catch (_error) {
-      alert.error("Não foi possivel recuperar as tarefas.");
+      toast.error("Não foi possivel recuperar as tarefas.");
     }
   };
 
