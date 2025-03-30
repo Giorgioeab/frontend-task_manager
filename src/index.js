@@ -1,27 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { positions, transitions, Provider as AlertProvider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
-
+import { Toaster } from "sonner";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 
 import App from "./App";
 
-// OPTIONAL CONFIG.
-const options = {
-  position: positions.BOTTOM_CENTER,
-  timeout: 4000,
-  offset: "30px",
-  transition: transitions.SCALE,
-};
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AlertProvider template={AlertTemplate} {...options}>
-      <App />
-    </AlertProvider>
+    <App />
+    <Toaster
+      theme="system"
+      richColors={true}
+      expand={false}
+      visibleToasts={3}
+      position="bottom-center"
+      closeButton={true}
+    />
   </React.StrictMode>
 );
 
